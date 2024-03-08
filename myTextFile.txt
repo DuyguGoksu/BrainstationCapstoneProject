@@ -1,3 +1,0 @@
-Here is my textfile - test.
-
-some numbers 12345323432
