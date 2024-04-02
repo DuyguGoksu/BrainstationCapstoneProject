@@ -71,6 +71,6 @@ Columns in the data:
 
 **`unique_cwc:`** Count of unique content words in each lyric, calculated using the spaCy package. - dropped for now, might add this back
 
-In the cleaned lyrics dataframe, I added this column which I will keep after merging with the main dataset. (I also created a token_count column, which I might change).
+In the cleaned lyrics dataframe, I added the following column which I will keep after merging with the main dataset. (I also created a token_count column, which I might change).
 
 **`language:`** Abbreviation for the dominant language in the lyrics of a given track.
