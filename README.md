@@ -6,7 +6,10 @@ A model that predicts track popularity is a very helpful tool for artists who ar
 
 Fetures in the baseline linear regression model in the notebook 2 come from the main dataset (30000 Spotify songs). Merging with other lyrics datasets from Kaggle and also using lyricsgenius package and Genius API, I add lyrics to the data in notebook 3. In notebook 4, I clean lyrics identifying non-lyric text. 
 
-Next, I plan to create lyrics-based features and build a more advanced model that is better at predicting popularity scores.
+## **Project Flowchart**
+Next, I will merge the two datasets: data used in the baseline modeling and cleaned lyrics, joining them on track_id.
+Then, I will create lyrics-based features.
+Finally I will build a more advanced model that is better at predicting popularity scores.
 
 
 
@@ -67,5 +70,7 @@ Columns in the data:
 **`compound:`** Compound sentiment score, calculated using the nltk.sentiment.vader package. (range: -1 to 1) - dropped for now, might add this back
 
 **`unique_cwc:`** Count of unique content words in each lyric, calculated using the spaCy package. - dropped for now, might add this back
+
+In the cleaned lyrics dataframe, I added this column which I will keep after merging with the main dataset. (I also created a token_count column, which I might change).
 
 **`language:`** Abbreviation for the dominant language in the lyrics of a given track.
