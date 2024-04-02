@@ -67,3 +67,5 @@ Columns in the data:
 **`compound:`** Compound sentiment score, calculated using the nltk.sentiment.vader package. (range: -1 to 1) - dropped for now, might add this back
 
 **`unique_cwc:`** Count of unique content words in each lyric, calculated using the spaCy package. - dropped for now, might add this back
+
+**`language:`** Abbreviation for the dominant language in the lyrics of a given track.
