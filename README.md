@@ -4,20 +4,31 @@ This project is about predicting song popularity using numeric data as well as t
 
 A model that predicts track popularity is a very helpful tool for artists who are trying to get into top category playlists. There are around 11 million artists on Spotify. Each get paid about $0.003 - $0.005 per stream, which they also share with their music label company. The outcomes of this project will help artists and record companies that represent them increase their revenue. Also, listeners' choice will be understood better, and this will improve their user experience.
 
-Fetures in the baseline linear regression model in the notebook 2 come from the main dataset (30000 Spotify songs). Merging with other lyrics datasets from Kaggle and also using lyricsgenius package and Genius API, I add lyrics to the data in notebook 3. In notebook 4, I clean lyrics identifying non-lyric text. 
-
 ## **Project Flowchart**
-Next, I will merge the two datasets: data used in the baseline modeling and cleaned lyrics, joining them on track_id.
-Then, I will create lyrics-based features.
-Finally I will build a more advanced model that is better at predicting popularity scores.
+
+In the first notebook, I explore the numeric measures in the main dataset (30000 Spotify songs - link provided in the data dictionary). I also merge two other datasets from Kaggle matching on song name and artist or track id, to identify the number of lyrics I can get from these datasets. 
+
+In notebook 2, I build a baseline linear regression model, optimizing hyperparameters via a grid search with 5 fold cross-validations. Fetures in the baseline linear regression model in the notebook 2 come from the main dataset (30000 Spotify songs), excluding lyrics. 
+
+Merging with other lyrics datasets from Kaggle and also using lyricsgenius package and Genius API, I add lyrics to the data in notebook 3. 
+
+In notebook 4, I clean lyrics identifying non-lyric text. 
+
+In notebook 5, I merge the lyrics with the rest of the data, and create a dataframe for collecting ratings from gpt 3.5 turbo model using chat-completion by making API calss to Open AI.
+
+In notebook 6, I make the API calls to Open AI, using an OpenAI key in a chat-completion, and clean the retrieved gpt ratings.
+
+In notebook 7, I merge dataframe with the gpt ratings with the rest of the data used in baseline modeling. I also create visuals to explore the distributions of the ratings and check for the correlations between independent variables.
+
+In notebook 8, I build neural network models and compare them to linear regression models. I try different dimensions (features) and structures. My best model is a neural network that I pickle at the end of notebook 8.
 
 
 
 ## **Data**
 
-‘spotify_songs.csv’ from [this](https://www.kaggle.com/datasets/joebeachcapital/30000-spotify-songs) source is the main dataset used in this project. To this dataset, lyrics for ~2000 songs are taken from two other datasets: ‘lyrics_10k.csv’ from [here](https://www.kaggle.com/datasets/evabot/spotify-lyrics-dataset) and `labeled_lyrics_cleaned.csv’ from [here](https://www.kaggle.com/datasets/edenbd/150k-lyrics-labeled-with-spotify-valence). 
+‘spotify_songs.csv’ from [this](https://www.kaggle.com/datasets/joebeachcapital/30000-spotify-songs) source is the main dataset used in this project. To this dataset, lyrics for ~2000 songs are taken from two other datasets: ‘lyrics_10k.csv’ from [here](https://www.kaggle.com/datasets/evabot/spotify-lyrics-dataset) and `labeled_lyrics_cleaned.csv` from [here](https://www.kaggle.com/datasets/edenbd/150k-lyrics-labeled-with-spotify-valence). 
 
-Columns in the data: 
+Overall, the following columns are present in the dataframes used in the notebooks. Not every dataframe has all of them. Categorical columns are changed to one-hot encoded columns for modeling.
 
 **`track_id:`** Unique id of the song.
 
@@ -63,14 +74,40 @@ Columns in the data:
 
 **`tempo:`** [as described in original source] The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration.
 
-**`duration_ms:`** Track durations in milliseconds
+**`duration_ms:`** Track durations in milliseconds.
 
 **`track_lyrics:`** lyrics added by merging with two separate datasets and Genius API as described above.
 
-**`compound:`** Compound sentiment score, calculated using the nltk.sentiment.vader package. (range: -1 to 1) - dropped for now, might add this back
+**`compound:`** Compound sentiment score, calculated using the nltk.sentiment.vader package. (range: -1 to 1) - experimented with only in notebook 1
 
-**`unique_cwc:`** Count of unique content words in each lyric, calculated using the spaCy package. - dropped for now, might add this back
+**`unique_cwc:`** Count of unique content words in each lyric, calculated using the spaCy package. - experimented with only in notebook 1
 
-In the cleaned lyrics dataframe, I added the following column which I will keep after merging with the main dataset. (I also created a token_count column, which I might change).
+After collecting lyrics with API calls to Lyrics Genius, cleaning and having gpt 3.5 to rate the lyrics with API calls to Open AI chat-completion, I have added the following columns:
 
-**`language:`** Abbreviation for the dominant language in the lyrics of a given track.
+**`language:`** Abbreviation for the dominant language in the lyrics of a given track. 
+
+**`Clear:`** Ratings from gpt from 1 to 10 on how clear song lyrics are.
+
+**`Relatable:`** Ratings from gpt from 1 to 10 on how relatable song lyrics are.
+
+**`Memorable:`** Ratings from gpt from 1 to 10 on how memorable song lyrics are.
+
+**`Engaging:`** Ratings from gpt from 1 to 10 on how engaging song lyrics are.
+
+**`Symbolic:`** Ratings from gpt from 1 to 10 on how symbolic song lyrics are.
+
+**`Lyrical:`** Ratings from gpt from 1 to 10 on how lyric-like (rather than another form of text) song lyrics are.
+
+**`Happy:`** Ratings from gpt from 1 to 10 on how happy the emotions conveyed in the song lyrics are.
+
+**`Surprised:`** Ratings from gpt from 1 to 10 on how surprised the emotions conveyed in the song lyrics are.
+
+**`Fearful:`** Ratings from gpt from 1 to 10 on how clear fearful the emotions conveyed in the song lyrics are.
+
+**`Angry:`** Ratings from gpt from 1 to 10 on how clear angry the emotions conveyed in the song lyrics are.
+
+**`Disgusted:`** Ratings from gpt from 1 to 10 on how disgusted the emotions conveyed in the song lyrics are.
+
+**`Sad:`** Ratings from gpt from 1 to 10 on how sad the emotions conveyed in the song lyrics are.
+
+
