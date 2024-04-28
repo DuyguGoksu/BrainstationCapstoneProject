@@ -1,4 +1,4 @@
 streamline
 pandas
 matplotlib
-sklearn
+scikit-learn
