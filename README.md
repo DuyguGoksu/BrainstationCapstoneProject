@@ -22,7 +22,7 @@ In notebook 7, I merge dataframe with the gpt ratings with the rest of the data 
 
 In notebook 8, I build neural network models and compare them to linear regression models. I try different dimensions (features) and structures. My best model is a neural network that I pickle at the end of notebook 8.
 
-I also made a Stremlit App where you can take a closer look at the predicted vs. actual popularity scores with 3D graphs. It is linked [here](https://songpopularitypredictor.streamlit.app/).
+I also made a Streamlit App where you can take a closer look at the predicted vs. actual popularity scores with 3D graphs. It is linked [here](https://songpopularitypredictor.streamlit.app/).
 
 
 ## **Data**
