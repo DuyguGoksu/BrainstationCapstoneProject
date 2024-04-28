@@ -1,10 +1,14 @@
+import os
+
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 
 # Load the combined data
-combined_data = pd.read_csv('combined_data.csv')  # Replace 'combined_data.csv' with the path to your combined data file
+cwd = os.getcwd()
+data_path = os.path.join(cwd, 'combined_data.csv')
+combined_data = pd.read_csv(data_path)
 
 # Perform PCA on selected columns
 selected_columns = [col for col in combined_data.columns if col not in ['track_popularity', 'Prediction', 'track_id']]
