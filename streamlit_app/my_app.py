@@ -1,10 +1,13 @@
+import os
+
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 
 # Load the combined data
-data_path = "streamlit_app/combined_data.csv"
+cwd = os.getcwd()
+data_path = os.path.join(cwd, 'combined_data.csv')
 combined_data = pd.read_csv(data_path)
 
 # Perform PCA on selected columns
