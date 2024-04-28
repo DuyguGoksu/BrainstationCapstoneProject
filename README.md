@@ -22,11 +22,12 @@ In notebook 7, I merge dataframe with the gpt ratings with the rest of the data 
 
 In notebook 8, I build neural network models and compare them to linear regression models. I try different dimensions (features) and structures. My best model is a neural network that I pickle at the end of notebook 8.
 
+I also made a Stremlit App where you can take a closer look at the predicted vs. actual results with 3D graphs. It is linked [here](https://songpopularitypredictor.streamlit.app/).
 
 
 ## **Data**
 
-‘spotify_songs.csv’ from [this](https://www.kaggle.com/datasets/joebeachcapital/30000-spotify-songs) source is the main dataset used in this project. To this dataset, lyrics for ~2000 songs are taken from two other datasets: ‘lyrics_10k.csv’ from [here](https://www.kaggle.com/datasets/evabot/spotify-lyrics-dataset) and `labeled_lyrics_cleaned.csv` from [here](https://www.kaggle.com/datasets/edenbd/150k-lyrics-labeled-with-spotify-valence). 
+‘spotify_songs.csv’ from [this](https://www.kaggle.com/datasets/joebeachcapital/30000-spotify-songs) source is the main dataset used in this project. To this dataset, lyrics for ~2000 songs are taken from two other datasets: ‘lyrics_10k.csv’ from [here](https://www.kaggle.com/datasets/evabot/spotify-lyrics-dataset) and `labeled_lyrics_cleaned.csv` from [here](https://www.kaggle.com/datasets/edenbd/150k-lyrics-labeled-with-spotify-valence). The final data is available inside the streamlit_app folder.
 
 Overall, the following columns are present in the dataframes used in the notebooks. Not every dataframe has all of them. Categorical columns are changed to one-hot encoded columns for modeling.
 
