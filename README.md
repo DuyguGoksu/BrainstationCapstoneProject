@@ -103,9 +103,9 @@ After collecting lyrics with API calls to Lyrics Genius, cleaning and having gpt
 
 **`Surprised:`** Ratings from gpt from 1 to 10 on how surprised the emotions conveyed in the song lyrics are.
 
-**`Fearful:`** Ratings from gpt from 1 to 10 on how clear fearful the emotions conveyed in the song lyrics are.
+**`Fearful:`** Ratings from gpt from 1 to 10 on how fearful the emotions conveyed in the song lyrics are.
 
-**`Angry:`** Ratings from gpt from 1 to 10 on how clear angry the emotions conveyed in the song lyrics are.
+**`Angry:`** Ratings from gpt from 1 to 10 on how angry the emotions conveyed in the song lyrics are.
 
 **`Disgusted:`** Ratings from gpt from 1 to 10 on how disgusted the emotions conveyed in the song lyrics are.
 
