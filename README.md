@@ -8,17 +8,17 @@ A model that predicts track popularity is a very helpful tool for artists who ar
 
 In the first notebook, I explore the numeric measures in the main dataset (30000 Spotify songs - link provided in the data dictionary). I also merge two other datasets from Kaggle matching on song name and artist or track id, to identify the number of lyrics I can get from these datasets. 
 
-In notebook 2, I build a baseline linear regression model, optimizing hyperparameters via a grid search with 5 fold cross-validations. Fetures in the baseline linear regression model in the notebook 2 come from the main dataset (30000 Spotify songs), excluding lyrics. 
+In notebook 2, I build a baseline linear regression model, optimizing hyperparameters via a grid search with 5 fold cross-validations. Features in the baseline linear regression model in the notebook 2 come from the main dataset (30000 Spotify songs), excluding lyrics. 
 
 Merging with other lyrics datasets from Kaggle and also using lyricsgenius package and Genius API, I add lyrics to the data in notebook 3. 
 
 In notebook 4, I clean lyrics identifying non-lyric text. 
 
-In notebook 5, I merge the lyrics with the rest of the data, and create a dataframe for collecting ratings from gpt 3.5 turbo model using chat-completion by making API calss to Open AI.
+In notebook 5, I merge the lyrics with the rest of the data, and create a dataframe for collecting ratings from GPT 3.5 turbo model using chat-completion by making API calls to Open AI.
 
-In notebook 6, I make the API calls to Open AI, using an OpenAI key in a chat-completion, and clean the retrieved gpt ratings.
+In notebook 6, I make the API calls to Open AI, using an OpenAI key in a chat-completion, and clean the retrieved GPT ratings.
 
-In notebook 7, I merge dataframe with the gpt ratings with the rest of the data used in baseline modeling. I also create visuals to explore the distributions of the ratings and check for the correlations between independent variables.
+In notebook 7, I merge dataframe with the GPT ratings with the rest of the data used in baseline modeling. I also create visuals to explore the distributions of the ratings and check for the correlations between independent variables.
 
 In notebook 8, I build neural network models and compare them to linear regression models. I try different dimensions (features) and structures. My best model is a neural network that I pickle at the end of notebook 8.
 
