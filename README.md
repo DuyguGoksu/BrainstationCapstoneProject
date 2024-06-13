@@ -1,6 +1,6 @@
 ## **Project Overview**
 
-This project is about predicting song popularity using numeric data as well as text data (i.e., lyrics). Music platforms such as Spotify have playlists made for everyone in addition to personalized lists. These playlists mostly consist of top songs or new releases in some genre. To get into these playlists, a track must have a high popularity score(around 50 out of 100). Popularity score of a track mostly depends on recent stream count and save and skip rate.
+This project focuses on predicting song popularity using numeric data as well as text data (i.e., lyrics). Music platforms such as Spotify have playlists made for everyone in addition to personalized lists. These playlists mostly consist of top songs or new releases in some genre. To get into these playlists, a track must have a high popularity score(around 50 out of 100). Popularity score of a track mostly depends on recent stream count and save and skip rate.
 
 A model that predicts track popularity is a very helpful tool for artists who are trying to get into top category playlists. There are around 11 million artists on Spotify. Each get paid about $0.003 - $0.005 per stream, which they also share with their music label company. The outcomes of this project will help artists and record companies that represent them increase their revenue. Also, listeners' choice will be understood better, and this will improve their user experience.
 
@@ -8,21 +8,21 @@ A model that predicts track popularity is a very helpful tool for artists who ar
 
 In the first notebook, I explore the numeric measures in the main dataset (30000 Spotify songs - link provided in the data dictionary). I also merge two other datasets from Kaggle matching on song name and artist or track id, to identify the number of lyrics I can get from these datasets. 
 
-In notebook 2, I build a baseline linear regression model, optimizing hyperparameters via a grid search with 5 fold cross-validations. Features in the baseline linear regression model in the notebook 2 come from the main dataset (30000 Spotify songs), excluding lyrics. 
+In notebook 2, I build a baseline lasso and ridge regression models, optimizing hyperparameters via a grid search with 5 fold cross-validations. Numeric features in these models come from the main dataset - 30000 Spotify songs (no lyrics yet). 
 
-Merging with other lyrics datasets from Kaggle and also using lyricsgenius package and Genius API, I add lyrics to the data in notebook 3. 
+Merging with other lyrics datasets from Kaggle and also using lyricsgenius package and Genius API for webscraping, I add lyrics to the data in notebook 3. 
 
-In notebook 4, I clean lyrics identifying non-lyric text. 
+In notebook 4, I clean lyrics identifying non-lyric text using regular expressions. 
 
 In notebook 5, I merge the lyrics with the rest of the data, and create a dataframe for collecting ratings from GPT 3.5 turbo model using chat-completion by making API calls to Open AI.
 
 In notebook 6, I make the API calls to Open AI, using an OpenAI key in a chat-completion, and clean the retrieved GPT ratings.
 
-In notebook 7, I merge dataframe with the GPT ratings with the rest of the data used in baseline modeling. I also create visuals to explore the distributions of the ratings and check for the correlations between independent variables.
+In notebook 7, I merge dataframe with the GPT ratings with the rest of the data used in the second notebook. I also create visuals to explore the distributions of the ratings and check for the correlations between independent variables.
 
 In notebook 8, I build neural network models and compare them to lasso and ridge regression models. I try different dimensions (features) and structures. My best model is a neural network with a Mean Absolute Error of 16.7. I pickle it at the end of notebook 8 to make the streamlit app.
 
-I also made a Streamlit App where you can take a closer look at the predicted vs. actual popularity scores with 3D graphs. It is linked [here](https://songpopularitypredictor.streamlit.app/).
+I also made a Streamlit App where you can take a closer look at the predicted vs. actual popularity scores with 3D graphs. It is linked [here](https://songpopularitypredictor.streamlit.app/). 
 
 
 ## **Data**
